@@ -29,3 +29,13 @@
   font-family: 'Questrial';
   src: url('assets/fonts/Questrial-Regular.ttf');
 }
+
+.errors {
+  background: var(--ion-color-danger);
+  border-radius: 4px;
+  color: var(--ion-color-white);
+  padding: 10px 20px 20px 20px;
+  margin: 0 auto 20px auto;
+  width: 90%;
+  text-align: left;
+}
