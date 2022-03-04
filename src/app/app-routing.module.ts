@@ -23,7 +23,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/list/list.module').then( m => m.ListPageModule)
   },
   {
-    path: 'details',
+    path: 'details/:table/:id',
     canActivate: [ClientGuard],
     loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)
   }
