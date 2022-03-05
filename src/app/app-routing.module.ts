@@ -26,6 +26,11 @@ const routes: Routes = [
     path: 'details/:table/:id',
     canActivate: [ClientGuard],
     loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)
+  },
+  {
+    path: 'profile',
+    canActivate: [ClientGuard],
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   }
 ];
 @NgModule({
