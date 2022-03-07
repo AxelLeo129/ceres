@@ -30,10 +30,21 @@ const routes: Routes = [
     loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)
   },
   {
+    path: 'detrecipes/:table/:id',
+    canActivate: [ClientGuard],
+    loadChildren: () => import('./pages/detrecipes/detrecipes.module').then( m => m.DetailsPageModule)
+  },
+  {
+    path: 'recipes',
+    canActivate: [ClientGuard],
+    loadChildren: () => import('./pages/recipes/recipes.module').then( m => m.RecipesPageModule)
+  },
+  {
     path: 'profile',
     canActivate: [ClientGuard],
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   }
+  
 ];
 @NgModule({
   imports: [
