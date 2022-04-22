@@ -1,0 +1,55 @@
+ion-back-button {
+	color: rgb(87, 146, 31);
+	margin-left: 15px;
+}
+.profilePic {
+	font-size: 120px;
+	color: black;
+	background-color: white;
+	margin: 0 auto;
+	border: 2px solid black;
+	border-radius: 50%;
+}
+.arrowDown {
+	font-size: 25px;
+	color: white;
+	margin: auto 0;
+}
+ion-row {
+	margin-top: 25px;
+}
+.ion-text-left {
+	margin-top: 0;
+}
+ion-card {
+	width: 75%;
+	height: 100%;
+	background-color: rgba($color: white, $alpha: 0.0);
+	color: white;
+	border: 1px solid white;
+	border-radius: 25px;
+	padding-left: 10px;
+	padding-top: 10px;
+	margin-bottom: 15px;
+}
+.texto {
+	width: 95%;
+	height: 80%;
+	overflow: hidden;
+}
+.likes {
+	float: right;
+	margin-right: 10px;
+}
+.ion-row-margin {
+	margin-top: 0;
+}
+.favRestaurants {
+	height: 75px;
+	overflow-y: scroll;
+}
+.arrowRight {
+	font-size: 25px;
+	color: white;
+	margin: auto 0;
+}
