@@ -4,6 +4,7 @@ import {
   ToastController,
   LoadingController,
 } from '@ionic/angular';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -75,6 +76,14 @@ export class ToolService {
         .then((alert) => {
           alert.present();
         });
+    });
+  }
+
+  basicSweet(icon: SweetAlertIcon, title: string, text: string) {
+    Swal.fire({
+      icon,
+      title,
+      text,
     });
   }
 

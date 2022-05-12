@@ -42,6 +42,10 @@ export class LoginPage implements OnInit {
     this.tool_service.presentAlert('Error','Credenciales erróneas', 'Aceptar');
   }
 
+  register() {
+    this.router.navigate(['/register']);
+  }
+
   get user() { return this.login_form.get('user'); }
   get password() { return this.login_form.get('password'); }
 

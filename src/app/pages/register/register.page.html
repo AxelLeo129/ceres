@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="back_button_text" [icon]="back_button_icon">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="mt-50">
+    <ion-row class="mt--180">
+      <ion-col size="12" class="ion-text-center">
+        <h2>Registro</h2>
+      </ion-col>
+    </ion-row>
+    <form (ngSubmit)="register()" [formGroup]="registre_form">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-input type="text" formControlName="username" clearInput placeholder="Usuario"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <div class="errors" *ngIf="username.invalid && (username.dirty || username.touched)">
+            <span *ngIf="username.errors.required">
+              <small>El usuario es requerido.</small>
+            </span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-input type="text" formControlName="first_name" clearInput placeholder="Nombre"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <div class="errors" *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)">
+            <span *ngIf="first_name.errors.required">
+              <small>El nombre es requerido.</small>
+            </span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-input type="text" formControlName="last_name" clearInput placeholder="Apellido"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <div class="errors" *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)">
+            <span *ngIf="last_name.errors.required">
+              <small>El apellido es requerido.</small>
+            </span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-input type="text" formControlName="email" clearInput placeholder="Email"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <div class="errors" *ngIf="email.invalid && (email.dirty || email.touched)">
+            <span *ngIf="email.errors.required">
+              <small>Los email es requerido.</small>
+            </span>
+            <span *ngIf="(email?.dirty || email?.touched) && email?.invalid && email?.errors.pattern">
+              <small>Ingrese un email válido.</small>
+            </span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-input type="password" formControlName="password" clearInput placeholder="Contraseña">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <div class="errors" *ngIf="password.invalid && (password.dirty || password.touched)">
+            <span *ngIf="password.errors.minlength">
+              <small>La contraseña debe tener al menos 6 caracteres.</small>
+            </span>
+            <span *ngIf="password.errors.required">
+              <small>La contraseña es requerida.</small>
+            </span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-input type="password" formControlName="confirm_password" clearInput placeholder="Confirmar contraseña">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <div class="errors" *ngIf="confirm_password.invalid && (confirm_password.dirty || confirm_password.touched)">
+            <span *ngIf="confirm_password.errors.minlength">
+              <small>La contraseña debe tener al menos 6 caracteres.</small>
+            </span>
+            <span *ngIf="confirm_password.errors.required">
+              <small>La contraseña es requerida.</small>
+            </span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="center-row">
+        <ion-col size="10">
+          <div class="user-picture">
+            <img [src]="imagen_perfil" alt="Ceres Logo" (click)="uploadProfileImage()">
+            <ion-button size="small" class="profilebutton" (click)="uploadProfileImage()">
+              <ion-icon name="pencil-sharp"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="center-row">
+        <ion-col size="10">
+          <ion-button [disabled]="!registre_form.valid" type="submit" size="small" expand="block" color="primary">
+            Registrarse</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>
+<input [id]="'getImage'+id" class="noshow" type="file" accept="image/*" (change)="changeListener($event)">

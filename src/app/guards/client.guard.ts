@@ -7,7 +7,7 @@ import { CanActivate, Router } from '@angular/router';
 export class ClientGuard implements CanActivate {
   constructor(private router: Router) {}
   canActivate() {
-    const auth = sessionStorage.getItem('auth');
+    const auth = localStorage.getItem('auth');
     if(auth) {
       return true;
     } else {
