@@ -39,3 +39,58 @@
   width: 90%;
   text-align: left;
 }
+
+.toolbar--background {
+  --background: #BBC4B5;
+}
+
+ion-title {
+  color: #57921f;
+}
+
+.user-picture {
+  background: var(--ion-color-light-tint);
+  border-radius: 100px;
+  border: solid 4px var(--ion-color-primary);
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 30px auto;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.main--title {
+  color: black;
+  text-shadow: 2px 2px #57921f;
+  font-family: 'Questrial';
+  font-size: 30px;
+}
+
+.main--subtitle {
+  font-family: 'Questrial';
+}
+
+.card--list {
+  font-family: 'Questrial';
+}
+
+.card--list ion-button {
+  position: absolute;
+  right: 0;
+}
+
+hr {
+  background-color: white;
+  margin: 0 5px;
+}
+
+.text--center--vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

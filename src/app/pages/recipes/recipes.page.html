@@ -1,9 +1,10 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="toolbar--background">
     <ion-buttons slot="start">
       <ion-back-button [text]="back_button_text" [icon]="back_button_icon">
       </ion-back-button>
     </ion-buttons>
+    <ion-title>Recetas</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,38 +13,24 @@
     <ion-row>
       <ion-col size="12">
         <ion-card class="ion-card-segment">
-          <ion-segment scrollable value="heart">
-            <ion-segment-button value="home">
-              <ion-icon name="funnel-outline"></ion-icon>
-            </ion-segment-button>
-            <ion-segment-button value="heart">
-              <ion-icon name="cash-outline"></ion-icon>
-            </ion-segment-button>
-            <ion-segment-button value="pin">
-              <ion-icon name="pin-outline"></ion-icon>
-            </ion-segment-button>
-            <ion-segment-button value="call">
-              <ion-icon name="card-outline"></ion-icon>
-            </ion-segment-button>
-            <ion-segment-button value="globe">
-              <ion-icon name="bicycle-outline"></ion-icon>
-            </ion-segment-button>
-            <ion-segment-button value="star">
-              <ion-icon name="alert-outline"></ion-icon>
-            </ion-segment-button>
-          </ion-segment>
+          <ion-searchbar (ionChange)="search()" [(ngModel)]="search_value"></ion-searchbar>
         </ion-card>
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let r of restaurants" class="ion-row-margin">
       <ion-col size="12">
-        <ion-card (click)="toRestaurant(r.id)">
+        <ion-card (click)="toRestaurant(r.id)" class="card--list">
           <ion-row>
             <ion-col size="4" class="ion-text-center">
-              <img [src]="r.img" alt="">
+              <div style="width: 100%;">
+                <img [src]="r.img" alt="">
+              </div>
             </ion-col>
             <ion-col size="8" class="ion-text-center">
               <h5>{{r.title}}</h5>
+              <ion-button size="small" color="primary">
+                {{r.rate}} <ion-icon name="star-outline"></ion-icon>
+              </ion-button>
             </ion-col>
           </ion-row>
         </ion-card>

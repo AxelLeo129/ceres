@@ -1,9 +1,10 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="toolbar--background">
     <ion-buttons slot="start">
       <ion-back-button [text]="back_button_text" [icon]="back_button_icon">
       </ion-back-button>
     </ion-buttons>
+    <ion-title>Detalles</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,6 +20,7 @@
         <h3>{{restaurant?.title}}</h3>
       </ion-col>
     </ion-row>
+    <hr>
     <ion-row>
       <ion-col size="12">
         <h4>Ingredientes</h4>

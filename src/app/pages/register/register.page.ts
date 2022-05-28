@@ -62,10 +62,10 @@ export class RegisterPage implements OnInit {
   }
 
   register() {
-    console.log(this.registre_form.value, this.imagen_file);
     //this.tootsService.createLoading('Cargando').then(() => {
       this.generalService.post('user/', { ...this.registre_form.value, imagen: this.imagen_file, tipo: 5}).then((res) => {
         localStorage.setItem('auth', res.token);
+        localStorage.setItem('profile', JSON.stringify(res.user));
         //this.tootsService.dissmissLoading();
         //this.tootsService.basicSweet('success', 'Registrado', 'Te has registrado exitósamente.');
         this.router.navigate(['menu']);

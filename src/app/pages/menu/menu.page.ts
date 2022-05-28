@@ -14,7 +14,7 @@ export class MenuPage implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('auth');
+    //localStorage.removeItem('auth');
     this.router.navigate(['login']);
   }
 

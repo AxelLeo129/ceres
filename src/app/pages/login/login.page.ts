@@ -11,7 +11,7 @@ import { ToolService } from 'src/app/services/tools.service';
 export class LoginPage implements OnInit {
 
   private user_field: any = {
-      user: 'grupo3',
+      user: 'presentacion',
       password: '123456'
   }
 
@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
   login() {
     if(this.user_field.user == this.login_form.value.user) {
       if(this.user_field.password == this.login_form.value.password) {
-        sessionStorage.setItem('auth', 'true');
+        localStorage.setItem('auth', 'true');
         this.router.navigate(['menu']);
         return;
       }
