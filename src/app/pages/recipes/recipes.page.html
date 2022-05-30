@@ -15,6 +15,25 @@
         <ion-card class="ion-card-segment">
           <ion-searchbar (ionChange)="search()" [(ngModel)]="search_value"></ion-searchbar>
         </ion-card>
+        <ion-card class="ion-card-segment">
+          <ion-segment scrollable value="heart" (ionChange)="sort()">
+            <ion-segment-button value="heart">
+              <ion-icon name="cash-outline"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="pin">
+              <ion-icon name="pin-outline"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="call">
+              <ion-icon name="card-outline"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="globe">
+              <ion-icon name="bicycle-outline"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="star">
+              <ion-icon name="alert-outline"></ion-icon>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-card>
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let r of restaurants" class="ion-row-margin">

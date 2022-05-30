@@ -13,6 +13,9 @@
     <ion-row>
       <ion-col size="12">
         <ion-card class="ion-card-segment">
+          <ion-searchbar (ionChange)="search()" [(ngModel)]="search_value"></ion-searchbar>
+        </ion-card>
+        <ion-card class="ion-card-segment">
           <ion-segment scrollable value="heart" (ionChange)="sort()">
             <ion-segment-button value="heart">
               <ion-icon name="cash-outline"></ion-icon>
