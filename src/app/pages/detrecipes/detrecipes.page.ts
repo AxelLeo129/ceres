@@ -101,4 +101,8 @@ export class DetailsPage implements OnInit {
     const id = this.route.snapshot.params.id;
     this.restaurant = this.restaurants.find((e) => e.id == id);
   }
+
+  addToFavorites() {
+    
+  }
 }

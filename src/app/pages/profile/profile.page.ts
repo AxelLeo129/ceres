@@ -12,31 +12,11 @@ export class ProfilePage implements OnInit {
   public back_button_icon: string = 'arrow-back-outline';
   public profile: any;
   public imagen_perfil: any = '/assets/img/default-user.png';
-  public segment: string = 'publications';
+  public segment: string = 'restaurants';
   public restaurants: Array<any> = [
     {
       id: 1,
       title: 'Restaurante Vegetariano Primavera'
-    },
-    {
-      id: 2,
-      title: 'Lorem ipsum dolor sit amet...'
-    },
-    {
-      id: 3,
-      title: 'Lorem ipsum dolor sit amet...'
-    },
-    {
-      id: 4,
-      title: 'Lorem ipsum dolor sit amet...'
-    },
-    {
-      id: 5,
-      title: 'Lorem ipsum dolor sit amet...'
-    },
-    {
-      id: 6,
-      title: 'Lorem ipsum dolor sit amet...'
     }
   ];
   

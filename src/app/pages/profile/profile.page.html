@@ -32,9 +32,6 @@
     </ion-row>
     <ion-row>
       <ion-segment [(ngModel)]="segment">
-        <ion-segment-button value="publications">
-          <ion-label>Publicaciones</ion-label>
-        </ion-segment-button>
         <ion-segment-button value="restaurants">
           <ion-label>Restaurantes</ion-label>
         </ion-segment-button>
@@ -43,25 +40,12 @@
         </ion-segment-button>
       </ion-segment>
     </ion-row>
-    <div [hidden]="segment != 'publications'">
-      <ion-row style="margin-top: -5px;">
-        <!-- <ion-col size="6" size-md class="ion-text-left">
-          <ion-card>
-            <div class="texto">Esta es mi primera publicacion</div>
-            <div class="likes">
-              <ion-icon name="star"></ion-icon>45
-            </div>
-          </ion-card>
-        </ion-col> -->
-        <h5 style="margin: 15px;">No tienes publicaciones.</h5>
-      </ion-row>
-    </div>
     <div [hidden]="segment != 'restaurants'">
       <ion-row class="ion-row-margin">
-        <!-- <ul *ngFor="let r of restaurants">
+        <ul *ngFor="let r of restaurants">
           <li (click)="toRestaurant(r.id)">{{r.title}}</li>
-        </ul> -->
-        <h5 style="margin: 15px;">No tienes restaurantes favoritos.</h5>
+        </ul>
+        <!-- <h5 style="margin: 15px;">No tienes restaurantes favoritos.</h5> -->
       </ion-row>
     </div>
     <div [hidden]="segment != 'receips'">

@@ -22,8 +22,8 @@
           <ion-button color="primary">
             <ion-icon name="clipboard-outline"></ion-icon>
           </ion-button>
-          <ion-button color="danger">
-            <ion-icon name="heart-outline"></ion-icon>
+          <ion-button (click)="addToFavorites()" color="danger">
+            <ion-icon [name]="favo ? 'heart' : 'heart-outline'" ></ion-icon>
           </ion-button>
         </div>
       </ion-col>
