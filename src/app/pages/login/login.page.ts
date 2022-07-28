@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { ToolService } from 'src/app/services/tools.service';
 
 @Component({
@@ -10,14 +11,10 @@ import { ToolService } from 'src/app/services/tools.service';
 })
 export class LoginPage implements OnInit {
 
-  private user_field: any = {
-      user: 'presentacion',
-      password: '123456'
-  }
-
   public login_form: FormGroup;
-
-  constructor(private router: Router, private tool_service: ToolService) { 
+  private pattern: any =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  constructor(private router: Router, private tool_service: ToolService, private auth_service: AuthService) { 
     this.login_form = this.createFormGroup();
   }
 
@@ -26,27 +23,26 @@ export class LoginPage implements OnInit {
 
   createFormGroup(){
     return new FormGroup({
-      'user': new FormControl('', [Validators.required]),
+      'email': new FormControl('', [Validators.required, Validators.pattern(this.pattern)]),
       'password': new FormControl('', [Validators.required, Validators.minLength(6)])
     })
   }
 
-  login() {
-    if(this.user_field.user == this.login_form.value.user) {
-      if(this.user_field.password == this.login_form.value.password) {
-        localStorage.setItem('auth', 'true');
-        this.router.navigate(['menu']);
-        return;
-      }
+  async login() {
+    this.tool_service.createLoading();
+    const user = await this.auth_service.login(this.login_form.value);
+    if(user) {
+      this.router.navigateByUrl('/menu', { replaceUrl: true });
+    } else {
+      this.tool_service.presentAlert('Credenciales incorrectas', 'Por favor, ingréselas de nuevo.');
     }
-    this.tool_service.presentAlert('Error','Credenciales erróneas', 'Aceptar');
   }
 
   register() {
     this.router.navigate(['/register']);
   }
 
-  get user() { return this.login_form.get('user'); }
+  get email() { return this.login_form.get('email'); }
   get password() { return this.login_form.get('password'); }
 
 }

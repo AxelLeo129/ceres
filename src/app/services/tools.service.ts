@@ -147,9 +147,9 @@ export class ToolService {
     });
   }
 
-  public dissmissLoading(): Promise<HTMLIonLoadingElement> {
+  public dissmissLoading(l: HTMLIonLoadingElement): Promise<HTMLIonLoadingElement> {
     return new Promise((res, rej) => {
-      this.loadingController.dismiss();
+      l.dismiss();
     });
   }
 

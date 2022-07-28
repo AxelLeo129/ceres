@@ -14,15 +14,18 @@
             <ion-row>
                 <ion-col size="12">
                     <ion-item>
-                        <ion-input type="text" formControlName="user" clearInput placeholder="Usuario"></ion-input>
+                        <ion-input type="email" formControlName="email" clearInput placeholder="Email"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
             <ion-row>
                 <ion-col size="12">
-                    <div class="errors" *ngIf="user.invalid && (user.dirty || user.touched)">
-                        <span *ngIf="user.errors.required">
-                            <small>El usuario es requerido.</small>
+                    <div class="errors" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <span *ngIf="email.errors.required">
+                            <small>El email es requerido.</small>
+                        </span>
+                        <span *ngIf="(email?.dirty || email?.touched) && email?.invalid && email?.errors.pattern">
+                            <small>Ingrese un email válido.</small>
                         </span>
                     </div>
                 </ion-col>

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { ClientGuard } from './guards/client.guard';
+import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 
-//Cambios de rama example
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(["/login"]);
 
 const routes: Routes = [
   {
     path: '',
-    canActivate: [ClientGuard],
-    loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
+    loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule),
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'login',
@@ -16,33 +16,28 @@ const routes: Routes = [
   },
   {
     path: 'menu',
-    canActivate: [ClientGuard],
-    loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
+    loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule), ...canActivate(redirectUnauthorizedToLogin),
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'list',
-    canActivate: [ClientGuard],
-    loadChildren: () => import('./pages/list/list.module').then( m => m.ListPageModule)
+    loadChildren: () => import('./pages/list/list.module').then( m => m.ListPageModule), ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'details/:table/:id',
-    canActivate: [ClientGuard],
-    loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)
+    loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule), ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'detrecipes/:table/:id',
-    canActivate: [ClientGuard],
-    loadChildren: () => import('./pages/detrecipes/detrecipes.module').then( m => m.DetailsPageModule)
+    loadChildren: () => import('./pages/detrecipes/detrecipes.module').then( m => m.DetailsPageModule), ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'recipes',
-    canActivate: [ClientGuard],
-    loadChildren: () => import('./pages/recipes/recipes.module').then( m => m.RecipesPageModule)
+    loadChildren: () => import('./pages/recipes/recipes.module').then( m => m.RecipesPageModule), ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'profile',
-    canActivate: [ClientGuard],
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule), ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'register',
