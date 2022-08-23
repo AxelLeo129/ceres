@@ -42,7 +42,16 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'comunity',
+    loadChildren: () => import('./pages/comunity/comunity.module').then( m => m.ComunityPageModule)
+  },
+  {
+    path: 'post/:id',
+    loadChildren: () => import('./pages/post/post.module').then( m => m.PostPageModule)
   }
+
 
   
 ];

@@ -1,3 +1,41 @@
+export const community = [
+  {
+    id: 1,
+    img: 'https://firebasestorage.googleapis.com/v0/b/ceres-7e3af.appspot.com/o/community%2FPostPunkKitchen.jpg?alt=media&token=26c6d84e-4145-4ee3-9003-fe25a2774f10',
+    name: 'Juan López',
+    message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus culpa quos pariatur blanditiis voluptate minus aliquid error ipsum. Adipisci possimus atque rem corrupti accusamus dolores, commodi iste quam recusandae magni?',
+    likes: 2
+  },
+  {
+    id: 1,
+    img: 'https://firebasestorage.googleapis.com/v0/b/ceres-7e3af.appspot.com/o/community%2Fdieta-vegetariana-beneficios.jpg?alt=media&token=490a3560-2283-44f1-b8ff-753317384a54',
+    name: 'María Pérez',
+    message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus culpa quos pariatur blanditiis voluptate minus aliquid error ipsum. Adipisci possimus atque rem corrupti accusamus dolores, commodi iste quam recusandae magni?',
+    likes: 3
+  },
+  {
+    id: 1,
+    img: 'https://firebasestorage.googleapis.com/v0/b/ceres-7e3af.appspot.com/o/community%2Fdownload.jpg?alt=media&token=25d70136-cb32-4bbb-9f98-ae9e5c3d4ae3',
+    name: 'Julian Tzunun',
+    message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus culpa quos pariatur blanditiis voluptate minus aliquid error ipsum. Adipisci possimus atque rem corrupti accusamus dolores, commodi iste quam recusandae magni?',
+    likes: 0
+  },
+  {
+    id: 1,
+    img: 'https://firebasestorage.googleapis.com/v0/b/ceres-7e3af.appspot.com/o/community%2Fplato-vegano-es-1-600.jpg?alt=media&token=124ee6ca-2c41-4bb4-8329-abe9a697ae31',
+    name: 'Pablo Gutierrez',
+    message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus culpa quos pariatur blanditiis voluptate minus aliquid error ipsum. Adipisci possimus atque rem corrupti accusamus dolores, commodi iste quam recusandae magni?',
+    likes: 1
+  },
+  {
+    id: 1,
+    img: 'https://firebasestorage.googleapis.com/v0/b/ceres-7e3af.appspot.com/o/community%2Fpost-facebook-tazones-vegetarianos-diseno-plano_23-2149112764.jpg?alt=media&token=0726d038-2ca1-4a4a-9e34-5dc0e72cbf67',
+    name: 'Ana María Escobar',
+    message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus culpa quos pariatur blanditiis voluptate minus aliquid error ipsum. Adipisci possimus atque rem corrupti accusamus dolores, commodi iste quam recusandae magni?',
+    likes: 0
+  }
+];
+
 export const recipes = [
   {
     id: 1,
