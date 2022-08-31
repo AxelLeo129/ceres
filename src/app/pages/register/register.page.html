@@ -17,23 +17,7 @@
       <ion-row>
         <ion-col size="12">
           <ion-item>
-            <ion-input type="text" formControlName="username" clearInput placeholder="Usuario"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="12">
-          <div class="errors" *ngIf="username.invalid && (username.dirty || username.touched)">
-            <span *ngIf="username.errors.required">
-              <small>El usuario es requerido.</small>
-            </span>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="12">
-          <ion-item>
-            <ion-input type="text" formControlName="first_name" clearInput placeholder="Nombre"></ion-input>
+            <ion-input type="text" formControlName="first_name" clearInput placeholder="Nombres"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -49,7 +33,7 @@
       <ion-row>
         <ion-col size="12">
           <ion-item>
-            <ion-input type="text" formControlName="last_name" clearInput placeholder="Apellido"></ion-input>
+            <ion-input type="text" formControlName="last_name" clearInput placeholder="Apellidos"></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -133,7 +117,7 @@
       </ion-row>
       <ion-row class="center-row">
         <ion-col size="10">
-          <ion-button [disabled]="!registre_form.valid" type="submit" size="small" expand="block" color="primary">
+          <ion-button [disabled]="!registre_form.valid && !imagen_file" type="submit" size="small" expand="block" color="primary">
             Registrarse</ion-button>
         </ion-col>
       </ion-row>

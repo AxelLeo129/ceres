@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
 
   async login() {
     this.tool_service.createLoading();
-    const user = await this.auth_service.login(this.login_form.value);
+    const user = await this.auth_service.loginWithEmail(this.login_form.value.email, this.login_form.value.password);
     if(user) {
       this.router.navigateByUrl('/menu', { replaceUrl: true });
     } else {

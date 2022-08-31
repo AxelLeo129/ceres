@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { GeneralService } from 'src/app/services/general.service';
 import { ToolService } from 'src/app/services/tools.service';
 
@@ -17,9 +18,9 @@ export class RegisterPage implements OnInit {
   public back_button_icon: string = 'arrow-back-outline';
   public id: string;
   public imagen_perfil: any = '/assets/img/default-user.png';
-  private imagen_file: any = null;
+  public imagen_file: any = null;
 
-  constructor(private router: Router, private generalService: GeneralService, private tootsService: ToolService) {
+  constructor(private router: Router, private auth_service: AuthService, private tootsService: ToolService, private general_service: GeneralService) {
     this.registre_form = this.createFormGroup();
   }
 
@@ -27,7 +28,6 @@ export class RegisterPage implements OnInit {
 
   createFormGroup() {
     return new FormGroup({
-      username: new FormControl('', [Validators.required]),
       first_name: new FormControl('', [Validators.required]),
       last_name: new FormControl('', [Validators.required]),
       email: new FormControl('', [
@@ -61,23 +61,24 @@ export class RegisterPage implements OnInit {
     reader.readAsDataURL(file);
   }
 
-  register() {
-    //this.tootsService.createLoading('Cargando').then(() => {
-      this.generalService.post('user/', { ...this.registre_form.value, imagen: this.imagen_file, tipo: 5}).then((res) => {
-        localStorage.setItem('auth', res.token);
-        localStorage.setItem('profile', JSON.stringify(res.user));
-        //this.tootsService.dissmissLoading();
-        //this.tootsService.basicSweet('success', 'Registrado', 'Te has registrado exitósamente.');
-        this.router.navigate(['menu']);
-      }).catch(err => {
+  async register() {
+    const loading = await this.tootsService.createLoading('Cargando');
+    this.auth_service.registerWithEmail(this.registre_form.value.email, this.registre_form.value.password).then(() => {
+      this.general_service.postDocument('usuarios', { apellidos: this.registre_form.value.last_name, email: this.registre_form.value.email, foto: '', nombres: this.registre_form.value.first_name }).then(() => {
+        this.tootsService.dissmissLoading(loading);
+        this.tootsService.basicSweet('success', 'Registrado', 'Te has registrado exitósamente.');
+        this.router.navigate(['/home']);
+      }).catch((err) => {
         console.log(err);
-      })
-    //});
+        this.tootsService.dissmissLoading(loading);
+        this.tootsService.basicSweet('error', 'Error', "Error al registrar usuario, por favor inténtelo de nuevo.");
+      });
+    }).catch((err) => {
+      this.tootsService.dissmissLoading(loading);
+      this.tootsService.basicSweet('error', 'Error', err + ", por favor inténtelo de nuevo.");
+    });
   }
 
-  get username() {
-    return this.registre_form.get('username');
-  }
   get first_name() {
     return this.registre_form.get('first_name');
   }
