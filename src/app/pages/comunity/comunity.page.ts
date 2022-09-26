@@ -12,10 +12,17 @@ export class ComunityPage implements OnInit {
   public back_button_text: string = '';
   public back_button_icon: string = 'arrow-back-outline';
   public restaurants: Array<any> = community;
-  
+  public listado = [];
+
   constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  loadListado() {
+    this.listado = [{
+      name: 1
+    }]
   }
 
   toRestaurant(id: number) {
