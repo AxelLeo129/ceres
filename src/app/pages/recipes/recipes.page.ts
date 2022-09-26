@@ -37,5 +37,9 @@ export class RecipesPage implements OnInit {
   sort() {
     this.restaurants = this.restaurants.sort((a, b) => 0.5 - Math.random());
   }
+  
+  toCreate(){
+    this.router.navigate(['/cerecipes']);
+  }
 
 }

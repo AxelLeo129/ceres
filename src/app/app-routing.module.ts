@@ -50,7 +50,11 @@ const routes: Routes = [
   {
     path: 'post/:id',
     loadChildren: () => import('./pages/post/post.module').then( m => m.PostPageModule)
+  },  {
+    path: 'cerecipes',
+    loadChildren: () => import('./pages/cerecipes/cerecipes.module').then( m => m.CErecipesPageModule)
   }
+
 
 
   

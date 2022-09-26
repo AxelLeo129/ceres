@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar class="toolbar--background">
+    <ion-buttons slot="start">
+      <ion-back-button [text]="back_button_text" [icon]="back_button_icon">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Crea tu Receta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form (ngSubmit)="sendReceta()" [formGroup]="recetas_form">
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Nombre de la Receta</ion-label>
+            <ion-input required type="text" formControlName="nombre"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Si es posible, ingrese una imagen de la Receta.</ion-label>
+            <div class="user-picture">
+              <img [src]="imagen_default" alt="Imagen de tu Receta" (click)="uploadProfileImage()">
+              <ion-button size="small" class="profilebutton" (click)="uploadProfileImage()">
+                <ion-icon name="pencil-sharp"></ion-icon>
+              </ion-button>
+            </div>
+            <input [id]="'getImage'+id" class="noshow" type="file" accept="image/*" (change)="changeListener($event)">
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <quill-editor formControlName="contenido"></quill-editor>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button [disabled]="!recetas_form.valid && !imagen_receta" expand="block" type="submit" color="primary">
+            Generar Receta</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>
