@@ -8,7 +8,7 @@ const serviceAccount = require('./firebase.json');
 const clientFire = firebase.initializeApp({
     apiKey: "AIzaSyBD1QbU2Fp2SmEKmgjyZXfVsVLbb0tVWl8",
     authDomain: "ceres-7e3af.firebaseapp.com",
-    databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+    databaseURL: "https://ejemplo.firebaseio.com",
     storageBucket: "ceres-7e3af.appspot.com",
 });
 
