@@ -10,7 +10,7 @@ export class ProfilePage implements OnInit {
 
   public back_button_text: string = '';
   public back_button_icon: string = 'arrow-back-outline';
-  public profile: any;
+  public profile: any = {username: 'sdaf', first_name: 'qwe', last_name: 'las', email: '@@@'};
   public imagen_perfil: any = '/assets/img/default-user.png';
   public segment: string = 'restaurants';
   public restaurants: Array<any> = [
@@ -23,7 +23,7 @@ export class ProfilePage implements OnInit {
   constructor(private router: Router) { }
   
   ngOnInit() {
-    this.profile = JSON.parse(localStorage.getItem('profile'));
+    //this.profile = JSON.parse(localStorage.getItem('profile'));
     console.log(this.profile);
   }
   
