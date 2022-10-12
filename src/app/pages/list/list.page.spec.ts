@@ -4,22 +4,19 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { DetailsPage } from './details.page';
+import { ListPage } from './list.page';
 
-describe('DetailsPage', () => {
-  let component: DetailsPage;
-  let fixture: ComponentFixture<DetailsPage>;
+describe('ListPage', () => {
+  let component: ListPage;
+  let fixture: ComponentFixture<ListPage>;
   let route: ActivatedRoute;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [DetailsPage],
+      declarations: [ListPage],
       imports: [
         IonicModule.forRoot(),
-        RouterTestingModule.withRoutes([]),
-        AgmCoreModule.forRoot({
-          apiKey: 'AIzaSyBelr5fDWyhUbRd3o6AZBKSpyi-apu5h2Q',
-        }),
+        RouterTestingModule.withRoutes([])
       ],
       providers: [
         {
@@ -30,7 +27,7 @@ describe('DetailsPage', () => {
         },
       ],
     }).compileComponents();
-    fixture = TestBed.createComponent(DetailsPage);
+    fixture = TestBed.createComponent(ListPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -39,8 +36,4 @@ describe('DetailsPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load list', () => {
-      component.getProduct();
-      expect(component.restaurant).toBeDefined();
-  });
 });

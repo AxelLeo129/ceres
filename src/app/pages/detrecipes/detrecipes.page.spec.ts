@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { DetailsPage } from './details.page';
+import { DetailsPage } from './detrecipes.page';
 
 describe('DetailsPage', () => {
   let component: DetailsPage;
@@ -16,10 +16,7 @@ describe('DetailsPage', () => {
       declarations: [DetailsPage],
       imports: [
         IonicModule.forRoot(),
-        RouterTestingModule.withRoutes([]),
-        AgmCoreModule.forRoot({
-          apiKey: 'AIzaSyBelr5fDWyhUbRd3o6AZBKSpyi-apu5h2Q',
-        }),
+        RouterTestingModule.withRoutes([])
       ],
       providers: [
         {
@@ -39,8 +36,4 @@ describe('DetailsPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should load list', () => {
-      component.getProduct();
-      expect(component.restaurant).toBeDefined();
-  });
 });
