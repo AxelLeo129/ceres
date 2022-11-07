@@ -42,4 +42,9 @@ describe('LoginPage', () => {
     expect(component).toBeTruthy();
   });
 
+  it('form should be created', () => {
+    component.login_form = component.createFormGroup();
+    expect(component.login_form).toBeDefined();
+  });
+
 });

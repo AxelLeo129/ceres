@@ -24,16 +24,16 @@ export class ProfilePage implements OnInit {
   
   ngOnInit() {
     //this.profile = JSON.parse(localStorage.getItem('profile'));
-    console.log(this.profile);
+    //console.log(this.profile);
   }
   
-  logout() {
-    localStorage.removeItem('auth');
-    this.router.navigate(['login']);
-  }
+  // logout() {
+  //   localStorage.removeItem('auth');
+  //   this.router.navigate(['login']);
+  // }
 
-  toRestaurant(id: number) {
-    this.router.navigate(['details/restaurant/' + id]);
-  }
+  // toRestaurant(id: number) {
+  //   this.router.navigate(['details/restaurant/' + id]);
+  // }
 
 }

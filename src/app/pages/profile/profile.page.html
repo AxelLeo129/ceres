@@ -5,9 +5,9 @@
       </ion-back-button>
     </ion-buttons>
     <ion-title>Mi perfil</ion-title>
-    <ion-button (click)="logout()" slot="end" expand="block" fill="clear" shape="round">
+    <!-- <ion-button (click)="logout()" slot="end" expand="block" fill="clear" shape="round">
       <ion-icon name="log-out-outline" class="icon-profile"></ion-icon>
-    </ion-button>
+    </ion-button> -->
   </ion-toolbar>
 </ion-header>
 
@@ -43,7 +43,7 @@
     <div [hidden]="segment != 'restaurants'">
       <ion-row class="ion-row-margin">
         <ul *ngFor="let r of restaurants">
-          <li (click)="toRestaurant(r.id)">{{r.title}}</li>
+          <!-- <li (click)="toRestaurant(r.id)">{{r.title}}</li> -->
         </ul>
         <!-- <h5 style="margin: 15px;">No tienes restaurantes favoritos.</h5> -->
       </ion-row>

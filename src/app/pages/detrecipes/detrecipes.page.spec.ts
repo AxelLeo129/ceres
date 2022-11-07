@@ -36,4 +36,9 @@ describe('DetailsPage', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should get the product', () => {
+    component.getProduct();
+    expect(component.restaurant).toBeDefined();
+  });
+
 });

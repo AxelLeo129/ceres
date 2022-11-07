@@ -40,7 +40,18 @@ describe('DetailsPage', () => {
   });
 
   it('should load list', () => {
-      component.getProduct();
+      component.ngOnInit();
       expect(component.restaurant).toBeDefined();
   });
+
+  it('should add to favorites', () => {
+    component.addToFavorites();
+    expect(localStorage.getItem('fav')).toBeDefined();
+  })
+
+  it('should add to favorites', () => {
+    localStorage.setItem('fav', JSON.stringify(null));
+    component.addToFavorites();
+    expect(localStorage.getItem('fav')).toBeDefined();
+  })
 });

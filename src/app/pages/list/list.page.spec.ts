@@ -36,4 +36,15 @@ describe('ListPage', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should search ', () => {
+    component.search_value = 'Saberico';
+    component.search();
+    expect(component.restaurants).toBeDefined();
+  });
+
+  it('should sort ', () => {
+    component.sort();
+    expect(component.restaurants).toBeDefined();
+  });
+
 });

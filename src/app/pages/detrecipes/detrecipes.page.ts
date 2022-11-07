@@ -102,7 +102,4 @@ export class DetailsPage implements OnInit {
     this.restaurant = this.restaurants.find((e) => e.id == id);
   }
 
-  addToFavorites() {
-    
-  }
 }

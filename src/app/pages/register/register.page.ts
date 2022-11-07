@@ -50,34 +50,34 @@ export class RegisterPage implements OnInit {
     ele.click();
   }
 
-  async changeListener(e: any) {
-    const file = e.target.files[0];
-    this.imagen_file = file;
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const base64String = reader.result;
-      this.imagen_perfil = base64String;
-    };
-    reader.readAsDataURL(file);
-  }
+  // async changeListener(e: any) {
+  //   const file = e.target.files[0];
+  //   this.imagen_file = file;
+  //   const reader = new FileReader();
+  //   reader.onloadend = () => {
+  //     const base64String = reader.result;
+  //     this.imagen_perfil = base64String;
+  //   };
+  //   reader.readAsDataURL(file);
+  // }
 
-  async register() {
-    const loading = await this.tootsService.createLoading('Cargando');
-    this.auth_service.registerWithEmail(this.registre_form.value.email, this.registre_form.value.password).then(() => {
-      this.general_service.postDocument('usuarios', { apellidos: this.registre_form.value.last_name, email: this.registre_form.value.email, foto: '', nombres: this.registre_form.value.first_name }).then(() => {
-        this.tootsService.dissmissLoading(loading);
-        this.tootsService.basicSweet('success', 'Registrado', 'Te has registrado exitósamente.');
-        this.router.navigate(['/home']);
-      }).catch((err) => {
-        console.log(err);
-        this.tootsService.dissmissLoading(loading);
-        this.tootsService.basicSweet('error', 'Error', "Error al registrar usuario, por favor inténtelo de nuevo.");
-      });
-    }).catch((err) => {
-      this.tootsService.dissmissLoading(loading);
-      this.tootsService.basicSweet('error', 'Error', err + ", por favor inténtelo de nuevo.");
-    });
-  }
+  // async register() {
+  //   const loading = await this.tootsService.createLoading('Cargando');
+  //   this.auth_service.registerWithEmail(this.registre_form.value.email, this.registre_form.value.password).then(() => {
+  //     this.general_service.postDocument('usuarios', { apellidos: this.registre_form.value.last_name, email: this.registre_form.value.email, foto: '', nombres: this.registre_form.value.first_name }).then(() => {
+  //       this.tootsService.dissmissLoading(loading);
+  //       this.tootsService.basicSweet('success', 'Registrado', 'Te has registrado exitósamente.');
+  //       this.router.navigate(['/home']);
+  //     }).catch((err) => {
+  //       console.log(err);
+  //       this.tootsService.dissmissLoading(loading);
+  //       this.tootsService.basicSweet('error', 'Error', "Error al registrar usuario, por favor inténtelo de nuevo.");
+  //     });
+  //   }).catch((err) => {
+  //     this.tootsService.dissmissLoading(loading);
+  //     this.tootsService.basicSweet('error', 'Error', err + ", por favor inténtelo de nuevo.");
+  //   });
+  // }
 
   get first_name() {
     return this.registre_form.get('first_name');

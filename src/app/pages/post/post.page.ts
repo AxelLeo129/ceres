@@ -42,10 +42,6 @@ export class PostPage implements OnInit {
     });
     this.comentario = "";
    }
-
-  like() {
-
-  }
   
   getProduct() {
     const id = this.route.snapshot.params.id;

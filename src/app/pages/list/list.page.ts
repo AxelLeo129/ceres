@@ -30,9 +30,9 @@ export class ListPage implements OnInit {
     });
   }
   
-  toRestaurant(id: number) {
-    this.router.navigate(['details/restaurant/' + id]);
-  }
+  // toRestaurant(id: number) {
+  //   this.router.navigate(['details/restaurant/' + id]);
+  // }
 
   sort() {
     this.restaurants = this.restaurants.sort((a, b) => 0.5 - Math.random());

@@ -36,4 +36,15 @@ describe('PostPage', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should post a comment', () => {
+    component.comentario = 'HOLA'
+    component.comment();
+    expect(component.comentarios.length).toEqual(4);
+  });
+
+  it('should get product', () => {
+    component.getProduct();
+    expect(component.restaurant).toBeDefined();
+  });
+
 });
