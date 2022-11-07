@@ -30,9 +30,9 @@ export class RecipesPage implements OnInit {
     });
   }
 
-  toRestaurant(id: number) {
-    this.router.navigate(['detrecipes/restaurant/' + id]);
-  }
+  // toRestaurant(id: number) {
+  //   this.router.navigate(['detrecipes/restaurant/' + id]);
+  // }
 
   sort() {
     this.restaurants = this.restaurants.sort((a, b) => 0.5 - Math.random());

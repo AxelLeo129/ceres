@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { RecipesPage } from './recipes.page';
 
-describe('ComunityPage', () => {
+describe('RecipesPage', () => {
   let component: RecipesPage;
   let fixture: ComponentFixture<RecipesPage>;
   let route: ActivatedRoute;
@@ -34,6 +34,17 @@ describe('ComunityPage', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should search ', () => {
+    component.search_value = 'Saberico';
+    component.search();
+    expect(component.restaurants).toBeDefined();
+  });
+
+  it('should sort ', () => {
+    component.sort();
+    expect(component.restaurants).toBeDefined();
   });
 
 });

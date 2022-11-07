@@ -13,9 +13,9 @@ export class MenuPage implements OnInit {
   ngOnInit() {
   }
 
-  logout() {
-    //localStorage.removeItem('auth');
-    this.router.navigate(['login']);
-  }
+  // logout() {
+  //   //localStorage.removeItem('auth');
+  //   this.router.navigate(['login']);
+  // }
 
 }

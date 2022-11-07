@@ -25,9 +25,9 @@ export class ComunityPage implements OnInit {
     }]
   }
 
-  toRestaurant(id: number) {
-    this.router.navigate(['post/' + id]);
-  }
+  // toRestaurant(id: number) {
+  //   this.router.navigate(['post/' + id]);
+  // }
 
 
 }

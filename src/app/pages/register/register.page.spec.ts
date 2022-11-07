@@ -40,4 +40,14 @@ describe('RegisterPage', () => {
     expect(component).toBeTruthy();
   });
 
+  it('form should be created', () => {
+    component.registre_form = component.createFormGroup();
+    expect(component.registre_form).toBeDefined();
+  });
+
+  it('element should be clicked', () => {
+    component.uploadProfileImage();
+    expect(component.imagen_perfil).toBeDefined();
+  });
+
 });

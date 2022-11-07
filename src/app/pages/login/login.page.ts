@@ -28,19 +28,19 @@ export class LoginPage implements OnInit {
     })
   }
 
-  async login() {
-    this.tool_service.createLoading();
-    const user = await this.auth_service.loginWithEmail(this.login_form.value.email, this.login_form.value.password);
-    if(user) {
-      this.router.navigateByUrl('/menu', { replaceUrl: true });
-    } else {
-      this.tool_service.presentAlert('Credenciales incorrectas', 'Por favor, ingréselas de nuevo.');
-    }
-  }
+  // async login() {
+  //   this.tool_service.createLoading();
+  //   const user = await this.auth_service.loginWithEmail(this.login_form.value.email, this.login_form.value.password);
+  //   if(user) {
+  //     this.router.navigateByUrl('/menu', { replaceUrl: true });
+  //   } else {
+  //     this.tool_service.presentAlert('Credenciales incorrectas', 'Por favor, ingréselas de nuevo.');
+  //   }
+  // }
 
-  register() {
-    this.router.navigate(['/register']);
-  }
+  // register() {
+  //   this.router.navigate(['/register']);
+  // }
 
   get email() { return this.login_form.get('email'); }
   get password() { return this.login_form.get('password'); }

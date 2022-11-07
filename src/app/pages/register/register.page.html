@@ -13,7 +13,7 @@
         <h2>Registro</h2>
       </ion-col>
     </ion-row>
-    <form (ngSubmit)="register()" [formGroup]="registre_form">
+    <form (ngSubmit)="uploadProfileImage()" [formGroup]="registre_form">
       <ion-row>
         <ion-col size="12">
           <ion-item>
@@ -124,4 +124,4 @@
     </form>
   </ion-grid>
 </ion-content>
-<input [id]="'getImage'+id" class="noshow" type="file" accept="image/*" (change)="changeListener($event)">
+<input [id]="'getImage'+id" class="noshow" type="file" accept="image/*">
