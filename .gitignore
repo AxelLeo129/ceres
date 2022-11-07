@@ -38,3 +38,5 @@ npm-debug.log*
 
 # Custom
 .scannerwork
+/selenium/node_modules
+/selenium/package-lock.json

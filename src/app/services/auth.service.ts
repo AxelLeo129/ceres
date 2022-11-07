@@ -33,17 +33,17 @@ export class AuthService {
   //   });
   // }
 
-  // async loginWithEmail(email: string, password: string): Promise<any> {
-  //   return new Promise(async (res, rej) => { 
-  //       signInWithEmailAndPassword(this.auth, email, password).then((res2) => {
-  //         console.log(res2);
-  //         res(res2);
-  //       }).catch((err) => {
-  //         console.log(err);
-  //         rej(this.firebaseErrors(err.code));
-  //       })
-  //   });
-  // }
+  async loginWithEmail(email: string, password: string): Promise<any> {
+    return new Promise(async (res, rej) => { 
+        signInWithEmailAndPassword(this.auth, email, password).then((res2) => {
+          console.log(res2);
+          res(res2);
+        }).catch((err) => {
+          console.log(err);
+          //rej(this.firebaseErrors(err.code));
+        })
+    });
+  }
 
   // async recoverPassword(email: string) {
   //   return sendPasswordResetEmail(this.auth, email).then((res) => console.log(res)).catch((err) => console.log(err));
