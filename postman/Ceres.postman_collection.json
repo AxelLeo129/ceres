@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "15186a05-ac0e-40f8-823b-169f10e7662b",
+		"name": "Ceres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14856221"
+	},
+	"item": [
+		{
+			"name": "Get Recipes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Success response\", function() {\r",
+							"    pm.response.to.not.be.error;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is valid\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"    pm.expect(response).to.have.ownProperty('documents');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://firestore.googleapis.com/v1/projects/ceres-7e3af/databases/(default)/documents/recetas",
+					"protocol": "https",
+					"host": [
+						"firestore",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"projects",
+						"ceres-7e3af",
+						"databases",
+						"(default)",
+						"documents",
+						"recetas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Restaurants",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Success response\", function() {\r",
+							"    pm.response.to.not.be.error;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is valid\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"    pm.expect(response).to.have.ownProperty('documents');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://firestore.googleapis.com/v1/projects/ceres-7e3af/databases/(default)/documents/restaurante",
+					"protocol": "https",
+					"host": [
+						"firestore",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"projects",
+						"ceres-7e3af",
+						"databases",
+						"(default)",
+						"documents",
+						"restaurante"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Recipes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Success response\", function() {\r",
+							"    pm.response.to.not.be.error;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is valid\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"    pm.expect(response).to.have.ownProperty('name');\r",
+							"    pm.expect(response).to.have.ownProperty('fields');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n        \"img\": {\r\n            \"stringValue\": \"https://firebasestorage.googleapis.com/v0/b/ceres-7e3af.appspot.com/o/recetas%2FBulbasaur.png?alt=media&token=01f28965-c37e-4890-904f-23a7d0ff1921\"\r\n        },\r\n        \"contenido\": {\r\n            \"stringValue\": \"<h1>Ingredientes:</h1><ul><li>pan</li><li>queso</li></ul><p><br></p><h1>Pasos:</h1><ol><li>poner pan</li><li>poner queso</li><li>cerrar pan</li></ol>\"\r\n        },\r\n        \"nombre\": {\r\n            \"stringValue\": \"Lasagna\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://firestore.googleapis.com/v1/projects/ceres-7e3af/databases/(default)/documents/recetas?documentId=123",
+					"protocol": "https",
+					"host": [
+						"firestore",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"projects",
+						"ceres-7e3af",
+						"databases",
+						"(default)",
+						"documents",
+						"recetas"
+					],
+					"query": [
+						{
+							"key": "documentId",
+							"value": "123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Success response\", function() {\r",
+							"    pm.response.to.not.be.error;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is valid\", function () {\r",
+							"    let response = pm.response.json();\r",
+							"    pm.expect(response).to.have.ownProperty('name');\r",
+							"    pm.expect(response).to.have.ownProperty('fields');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n        \"img\": {\r\n            \"stringValue\": \"https://firebasestorage.googleapis.com/v0/b/ceres-7e3af.appspot.com/o/recetas%2FBulbasaur.png?alt=media&token=01f28965-c37e-4890-904f-23a7d0ff1921\"\r\n        },\r\n        \"nombre\": {\r\n            \"stringValue\": \"Lasagna\"\r\n        },\r\n        \"descripcion\": {\r\n            \"stringValue\": \"pizze vegane\"\r\n        },\r\n        \"direccion\": {\r\n            \"stringValue\": \"Zona 4\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://firestore.googleapis.com/v1/projects/ceres-7e3af/databases/(default)/documents/restaurante?documentId=789",
+					"protocol": "https",
+					"host": [
+						"firestore",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"projects",
+						"ceres-7e3af",
+						"databases",
+						"(default)",
+						"documents",
+						"restaurante"
+					],
+					"query": [
+						{
+							"key": "documentId",
+							"value": "789"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Recipes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Success response\", function() {\r",
+							"    pm.response.to.not.be.error;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://firestore.googleapis.com/v1/projects/ceres-7e3af/databases/(default)/documents/recetas/123",
+					"protocol": "https",
+					"host": [
+						"firestore",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"projects",
+						"ceres-7e3af",
+						"databases",
+						"(default)",
+						"documents",
+						"recetas",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Restaurant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Success response\", function() {\r",
+							"    pm.response.to.not.be.error;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://firestore.googleapis.com/v1/projects/ceres-7e3af/databases/(default)/documents/restaurante/789",
+					"protocol": "https",
+					"host": [
+						"firestore",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"projects",
+						"ceres-7e3af",
+						"databases",
+						"(default)",
+						"documents",
+						"restaurante",
+						"789"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
