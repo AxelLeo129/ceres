@@ -16,8 +16,10 @@ jobs:
         run: npm install --legacy-peer-deps
       - name: Build
         run: npm run build
-      - name: Test
+      - name: Unit Test
         run: npm run test
+      - name: Integration Test
+        run: npm install -g newman && newman run postman/Ceres.postman_collection.json
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
