@@ -20,6 +20,8 @@ jobs:
         run: npm run test
       - name: Integration Test
         run: npm install -g newman && newman run postman/Ceres.postman_collection.json
+      - name: System tests
+        run: cd selenium && npm install && npm run start
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
