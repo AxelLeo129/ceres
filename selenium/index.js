@@ -1,10 +1,8 @@
 const { By, Key, Builder } = require('selenium-webdriver');
-const { Options } = require('selenium-webdriver/chrome');
-
 require('chromedriver')
 
 async function test_case() {
-    let driver = await new Builder().forBrowser("chrome").setChromeOptions(new Options().headless()).build();
+    let driver = await new Builder().forBrowser("chrome").build();
     try {    
         await driver.get('https://ceres-7e3af.firebaseapp.com/login');
         await driver.findElement(By.name('ion-input-0')).sendKeys('axel@email.com', Key.RETURN);
